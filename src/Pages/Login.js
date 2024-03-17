@@ -10,12 +10,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { TiWarning } from "react-icons/ti";
 
-
-
 const Login = () => {
   const { isAuthenticate } = useSelector((state) => state?.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  
   useEffect(() => {
     if (isAuthenticate) {
       navigate("/dashboard");
@@ -31,7 +30,7 @@ const Login = () => {
     } else {
       dispatch(loginUser(false));
       alert("Invalid credentials");
-      reset()
+      reset();
       return navigate("/login");
     }
   };
@@ -44,14 +43,10 @@ const Login = () => {
     <div
       style={{
         height: "100vh",
-        // backgroundImage: `url(${bgimg})`,
         backgroundColor:"#FAFBFC",
-        backgroundSize: "cover", // Cover the entire container
-        backgroundPosition: "center", // Center the image horizontally and vertically
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        // paddingRight: "200px",
         position:"relative",
         overflow:"hidden"
       }}
@@ -59,9 +54,10 @@ const Login = () => {
       <img
         style={{
           position: "absolute",
-          left: 30,
-          top: 28,
-          width: 100,
+          left: "3%",
+          top: "3%",
+          width: "10%",
+          maxWidth: "100px",
         }}
         src={logo}
         alt="img"
@@ -70,31 +66,25 @@ const Login = () => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         style={{
-          width: "30%",
-          height: "auto",
-          background: "#fff" /* Transparent background */,
-          backdropFilter: "blur(10px)" /* Blur effect */,
-          borderRadius: "30px" /* Rounded corners */,
+          width: "90%",
+          maxWidth: "400px",
+          height:"auto",
+          background: "#fff",
+          borderRadius: "30px",
           padding: "2rem",
-          border: "0px solid #bfe9ff" /* Transparent border initially */,
-          display: "flex",
-          flexDirection: "column",
-          gap: "2rem",
-          justifyContent: "center",
-          alignItems: "center",
-          boxShadow: "0 24px 64px #26214a1a" /* Shadow effect */,
+          boxShadow: "0 24px 64px #26214a1a",
           zIndex:2
         }}
       >
-        <h3 className="fw-bolder text-dark">Wellcome !</h3>
-        <div className="input-group">
+        <h3 className="fw-bolder text-dark text-center mb-4">Welcome!</h3>
+        <div className="input-group mb-4">
           <span className="text-dark ps-1 web-text-small">Owner name</span>
           <Input01 
             register={register("name")} placeholder={"Owner name"} type={"text"} name={"name"} />
           {errors.name && <span className="text-danger web-text-small fw-bold ps-2 d-flex align-items-center gap-1 mt-1"><TiWarning className="fw-bold fs-5 "/> {errors.name.message}</span>}
         </div>
 
-        <div className="input-group">
+        <div className="input-group mb-4">
           <span className="text-dark ps-1 web-text-small">Password</span>
           <Input01
             placeholder={"Password"}
@@ -114,18 +104,16 @@ const Login = () => {
       <div
         style={{
           position: "absolute",
-          right: 4,
-          bottom: 0,
+          bottom: "0%",
           fontSize: "14px",
           color: "#D9D9D9",
-          zIndex:3,
           textAlign:"center",
-          width:"100%"
+          width:"100%",
+          zIndex:2
         }}
       >
         Crafted by Siddhesh More
       </div>
-
 
       <span style={{
         width:"1531px",
@@ -140,4 +128,5 @@ const Login = () => {
     </div>
   );
 };
+
 export default Login;
