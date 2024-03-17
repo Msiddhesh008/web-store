@@ -44,22 +44,33 @@ const Dashboard = () => {
         }}
       >
         <div className="d-flex justify-content-start p-3">
-          <img
-            onClick={openDrawerOnClick}
-            style={{
-              width: isDrawerOpen || openDrawerClick ? 80 : 35,
-            }}
-            src={isDrawerOpen || openDrawerClick ? logo : logoMini}
-            alt="Logo"
-          />
+          {isDrawerOpen || openDrawerClick ? (
+            <img
+              onClick={openDrawerOnClick}
+              style={{
+                width: 80,
+              }}
+              src={logo}
+              alt="Logo"
+            />
+          ) : (
+            <img
+              onClick={openDrawerOnClick}
+              style={{
+                width: 35,
+              }}
+              src={logoMini}
+              alt="Logo"
+            />
+          )}
         </div>
         <div className="p-2">
           {nav.map(({ title, path, icon }) => (
             <div className=" mb-2 w-100 d-flex ">
               <NavLink
-              style={{
-                height:40
-              }}
+                style={{
+                  height: 40,
+                }}
                 className="link p-2  rounded-4 fs-6 d-flex align-items-center gap-2 w-100 ps-3 "
                 to={path}
               >
@@ -67,7 +78,9 @@ const Dashboard = () => {
                   style={{
                     display: isDrawerOpen || openDrawerClick ? "flex" : "flex",
                   }}
-                >{icon}</span>
+                >
+                  {icon}
+                </span>
                 <span
                   style={{
                     display: isDrawerOpen || openDrawerClick ? "block" : "none",
