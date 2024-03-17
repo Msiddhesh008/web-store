@@ -15,7 +15,7 @@ function App() {
 
   const PrivateRoute = ({ children }) => {
     if (!isAuthenticate) {
-      return <Navigate to="/login" replace />;
+      return <Navigate to="/web-store" replace />;
     }
     return children;
   };
@@ -23,7 +23,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/web-store" element={<Login />} />
         <Route
           path="/*"
           element={
