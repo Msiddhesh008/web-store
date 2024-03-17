@@ -24,6 +24,8 @@
   text-decoration: none ;
   transition: all 0.2s ease-in-out;
   color: #a4b0be;
+  font-size: 18px !important;
+
 }
 
 .link:hover {
