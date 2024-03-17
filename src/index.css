@@ -33,3 +33,7 @@
 .active:hover {
   background-color: #5e7ee71c;
 }
+
+.web-text-small{
+  font-size: 14px !important;
+}

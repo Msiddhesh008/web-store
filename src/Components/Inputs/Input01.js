@@ -12,7 +12,7 @@ const focusedInputStyle = {
   border: "1px solid #3366FF", // Change border color for focused state
 };
 
-const Input01 = ({ type, placeholder, onChange, name }) => {
+const Input01 = ({ type, placeholder, onChange, name, register }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = () => {
@@ -35,6 +35,7 @@ const Input01 = ({ type, placeholder, onChange, name }) => {
       onFocus={handleFocus}
       onBlur={handleBlur}
       placeholder={placeholder}
+      {...register}
     />
   );
 };
