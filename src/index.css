@@ -1,13 +1,35 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: "League Spartan", sans-serif !important;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.pointer {
+  cursor: pointer !important;
+}
+
+.active{
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Optionally change font weight for active link */
+  background: linear-gradient(to right, #5E7FE7, #D86572); /* Gradient background */
+  -webkit-background-clip: text; /* Clip text to the background area */
+  -webkit-text-fill-color: transparent; /* Fill text with the background color */
+  transition: all 0.3s ease-in-out;
+}
+
+.link {
+  text-decoration: none ;
+  transition: all 0.2s ease-in-out;
+  color: #a4b0be;
+}
+
+.link:hover {
+  background-color: #5e7ee71c;
+}
+
+.active:hover {
+  background-color: #5e7ee71c;
 }
