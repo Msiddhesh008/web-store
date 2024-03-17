@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../Images/miniLogo.jpg";
+import logo from "../Images/logoDark.png";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../Redux/Slice/auth";
 import Button02 from "../Components/Buttons/Button02";
@@ -46,11 +46,10 @@ const Dashboard = () => {
           <img
             onClick={openDrawerOnClick}
             style={{
-              width: 40,
+              width: 100,
             }}
             src={logo}
             alt="Logo"
-            className="rounded-3"
           />
         </div>
         <div className="p-2">
@@ -89,7 +88,7 @@ const Dashboard = () => {
       <main
         className=" h-100 rounded-5"
         style={{
-          backgroundColor: "#FAFBFC",
+          backgroundColor:"#FAFBFC",
           width: `calc(100% - ${isDrawerOpen || openDrawerClick ? 140 : 80}px)`,
           transition: "width 0.3s ease-in-out",
           overflow: "auto",
