@@ -14,7 +14,7 @@
 .active{
   text-decoration: none; /* Remove underline */
   font-weight: bold; /* Optionally change font weight for active link */
-  background: linear-gradient(to right, #5E7FE7, #D86572); /* Gradient background */
+  background: linear-gradient(to right, #7A45FB, #DE41B5); /* Gradient background */
   -webkit-background-clip: text; /* Clip text to the background area */
   -webkit-text-fill-color: transparent; /* Fill text with the background color */
   transition: all 0.3s ease-in-out;
@@ -38,4 +38,30 @@
 
 .web-text-small{
   font-size: 14px !important;
+}
+
+.arrow-button{
+  transition: all 0.5s;
+}
+
+
+.arrow-button:active{
+  background: #fff;
+}
+
+.arrow-button:focus{
+  background: #fff;
+}
+
+.arrow-button:hover{
+  background: linear-gradient(90deg, #DE41B5 0%, #7A45FB 100%);
+}
+
+.greeting{
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Optionally change font weight for active link */
+  background: linear-gradient(to right, #7A45FB, #DE41B5); /* Gradient background */
+  -webkit-background-clip: text; /* Clip text to the background area */
+  -webkit-text-fill-color: transparent; /* Fill text with the background color */
+  transition: all 0.3s ease-in-out;
 }

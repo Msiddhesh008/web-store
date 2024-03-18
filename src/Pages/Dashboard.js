@@ -8,6 +8,8 @@ import { NavLink, Route, Routes } from "react-router-dom";
 import { RouteLink } from "../Routes/Routes";
 import NotFound from "./NotFound";
 import { nav } from "../Routes/Nav";
+import { TbArrowBadgeLeftFilled } from "react-icons/tb";
+import { TbArrowBadgeRightFilled } from "react-icons/tb";
 
 const Dashboard = () => {
   const distach = useDispatch();
@@ -43,10 +45,9 @@ const Dashboard = () => {
           overflow: "hidden", // Hide overflow to prevent content overflow during transition
         }}
       >
-        <div className="d-flex justify-content-start p-3">
+        <div className="d-flex justify-content-start p-3 position-relative">
           {isDrawerOpen || openDrawerClick ? (
             <img
-              onClick={openDrawerOnClick}
               style={{
                 width: 80,
               }}
@@ -55,7 +56,6 @@ const Dashboard = () => {
             />
           ) : (
             <img
-              onClick={openDrawerOnClick}
               style={{
                 width: 35,
               }}
@@ -120,9 +120,35 @@ const Dashboard = () => {
           backgroundColor: "#FAFBFC",
           width: `calc(100% - ${isDrawerOpen || openDrawerClick ? 160 : 66}px)`,
           transition: "width 0.3s ease-in-out",
-          overflow: "auto",
+          position: "relative",
         }}
       >
+        <span
+          className="arrow-button"
+          onMouseOver={() => setIsDrawerOpen(true)}
+          onMouseLeave={() => setIsDrawerOpen(false)}
+          onClick={openDrawerOnClick}
+          style={{
+            width: 26,
+            height: 26,
+            background: "linear-gradient(90deg, #7A45FB 0%, #DE41B5 100%)",
+            borderRadius: "50%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            position: "absolute",
+            left: -14,
+            bottom: 80,
+            zIndex: 6,
+            boxShadow:"rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset"
+          }}
+        >
+          {isDrawerOpen || openDrawerClick ? (
+            <TbArrowBadgeLeftFilled className="fs-6 pointer text-white" />
+          ) : (
+            <TbArrowBadgeRightFilled className="fs-6 pointer text-white" />
+          )}
+        </span>
         <AppContent />
       </main>
     </div>

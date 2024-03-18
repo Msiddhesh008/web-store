@@ -12,7 +12,6 @@ import { useSelector } from "react-redux";
 
 function App() {
   const { isAuthenticate } = useSelector((state) => state?.auth);
-
   const PrivateRoute = ({ children }) => {
     if (!isAuthenticate) {
       return <Navigate to="/web-store" replace />;
