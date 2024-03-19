@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const TimeCalculator = ({JoiningDate}) => {
+const TimeCalculator = ({ JoiningDate }) => {
   const [elapsedTime, setElapsedTime] = useState(0);
 
   useEffect(() => {
@@ -21,16 +21,15 @@ const TimeCalculator = ({JoiningDate}) => {
     return () => clearInterval(intervalId);
   }, []);
 
-  // Convert seconds to years, days, hours, minutes, and remaining seconds
+  // Convert seconds to years, months, days, hours, minutes, and remaining seconds
   const years = Math.floor(elapsedTime / (365 * 24 * 60 * 60));
-  const days = Math.floor(
-    (elapsedTime % (365 * 24 * 60 * 60)) / (24 * 60 * 60)
-  );
+  const months = Math.floor((elapsedTime % (365 * 24 * 60 * 60)) / (30 * 24 * 60 * 60)); // Approximating a month to 30 days
+  const days = Math.floor((elapsedTime % (30 * 24 * 60 * 60)) / (24 * 60 * 60));
   const hours = Math.floor((elapsedTime % (24 * 60 * 60)) / (60 * 60));
   const minutes = Math.floor((elapsedTime % (60 * 60)) / 60);
   const seconds = elapsedTime % 60;
 
-  return `${years}Y ${days}D ${hours}H ${minutes}M ${seconds}S`;
+  return `${years}Y ${months}M ${hours}H ${minutes}M ${seconds}S`;
 };
 
 export default TimeCalculator;

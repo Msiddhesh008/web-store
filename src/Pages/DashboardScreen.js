@@ -7,11 +7,10 @@ import { GrReactjs } from "react-icons/gr";
 import { DiJavascript1 } from "react-icons/di";
 import { FaHtml5 } from "react-icons/fa6";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-
-
+import { IoLogoJavascript } from "react-icons/io";
+import BarChart from "../Components/Chart/BarChart";
 
 const DashboardScreen = () => {
-
   const [cards, setCards] = useState([
     {
       type: "small",
@@ -23,7 +22,7 @@ const DashboardScreen = () => {
       icons: (
         <FaHtml5
           style={{
-            fontSize: 120,
+            fontSize: 100,
             color: "#DD4B25",
           }}
         />
@@ -37,9 +36,9 @@ const DashboardScreen = () => {
       gredient: null,
       textColor: "#2E302C",
       icons: (
-        <DiJavascript1
+        <IoLogoJavascript
           style={{
-            fontSize: 150,
+            fontSize: 110,
             color: "#2E302C",
           }}
         />
@@ -49,22 +48,37 @@ const DashboardScreen = () => {
       type: "small",
       title: "React JS Experience",
       date: "2021-06-02",
-      backgroundColor: null,
-      gredient:
-        "linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%)",
+      backgroundColor: "#222f3e",
+      gredient: null,
+      textColor: "#81E0FF",
+      icons: (
+        <GrReactjs
+          style={{
+            fontSize: 100,
+            color: "#81E0FF",
+          }}
+          className="rotate"
+        />
+      ),
+    },
+    {
+      type: "small",
+      title: "React Native Experience",
+      date: "2021-06-02",
+      backgroundColor: "#222f3e",
+      gredient:null,
       textColor: "#fff",
       icons: (
         <GrReactjs
           style={{
-            fontSize: 120,
+            fontSize: 100,
             color: "#fff",
           }}
           className="rotate"
         />
       ),
     },
-  ])
-
+  ]);
 
   const handleDragEnd = (result) => {
     if (!result.destination) return;
@@ -78,7 +92,7 @@ const DashboardScreen = () => {
   };
 
   return (
-    <div className="h-100 w-100 d-flex flex-column justify-content-start align-items-start">
+    <div className="h-100 w-100 overflow-auto d-flex flex-column justify-content-start align-items-start">
       <HaedMain01 />
 
       <DragDropContext onDragEnd={handleDragEnd}>
@@ -87,19 +101,36 @@ const DashboardScreen = () => {
             <div
               {...provided.droppableProps}
               ref={provided.innerRef}
-              style={{ height: "34%" }}
-              className="w-100 d-flex flex-wrap "
+              style={{ height: "auto", zIndex: 1 }}
+              className="w-100 d-flex  flex-wrap"
             >
               {cards.map(
-                ({ type, title, date, icons, gredient, backgroundColor, textColor }, index) => {
+                (
+                  {
+                    type,
+                    title,
+                    date,
+                    icons,
+                    gredient,
+                    backgroundColor,
+                    textColor,
+                  },
+                  index
+                ) => {
                   return (
-                    <Draggable key={index} draggableId={`card-${index}`} index={index}>
+                    <Draggable
+                      key={index}
+                      draggableId={`card-${index}`}
+                      index={index}
+                    >
                       {(provided) => (
                         <div
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
-                          className="col-12 col-md-4 p-3 "
+                          className={` ${
+                            index === 0 ? "ps-3" : ""
+                          } col-md-3 p-2 col-12`}
                         >
                           <div
                             style={{
@@ -108,12 +139,15 @@ const DashboardScreen = () => {
                                   ? "linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%)"
                                   : backgroundColor,
                               boxShadow:
-                                "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
-                                height:200
+                                "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 0px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
+
+                              boxShadow:
+                                "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
+                              height: 160,
                             }}
                             className="w-100  rounded-4 d-flex"
                           >
-                            <div className="d-flex col-6 align-items-start justify-content-end p-3 pe-0 ps-4 flex-column h-100">
+                            <div className="d-flex col-7 align-items-start justify-content-end p-3 pe-0  flex-column h-100">
                               <h6
                                 style={{
                                   color: textColor,
@@ -133,7 +167,7 @@ const DashboardScreen = () => {
                               </h2>
                             </div>
 
-                            <div className="col-6 p-3 d-flex align-items-center justify-content-center">
+                            <div className="col-5 p-3 d-flex align-items-center justify-content-center">
                               <span>{icons}</span>
                             </div>
                           </div>
@@ -148,6 +182,24 @@ const DashboardScreen = () => {
           )}
         </Droppable>
       </DragDropContext>
+
+      <div className="w-100 h-auto d-flex p-3 flex-wrap">
+        <div className=" col-12 col-lg-6 col-md-6 p-2 ps-0">
+          <div
+            style={{
+              height: 300,
+              boxShadow:
+                "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
+              boxShadow:
+                "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
+              backgroundColor: "#ffffff",
+            }}
+            className=" rounded-4 p-4 pb-3 "
+          ></div>
+        </div>
+        
+        <BarChart />
+      </div>
     </div>
   );
 };

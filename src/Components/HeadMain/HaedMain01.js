@@ -17,9 +17,11 @@ const HaedMain01 = () => {
     </span>
     <span className="d-flex align-items-start flex-column">
       <span className="fs-5 d-flex align-items-center">
-        <span className="fw-bold greeting">Hello, Siddhesh More</span>👋
+        <span  className="fw-bold greeting">Hello, Siddhesh!</span> 👋
       </span>
-      <span className="web-text-small fw-bold">msiddhesh008@gmail.com</span>
+      <span style={{
+          color:"#2E302C"
+        }} className="web-text-small fw-bold">msiddhesh008@gmail.com</span>
     </span>
     </div>
     </div>
