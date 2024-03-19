@@ -3,6 +3,11 @@ import { loginUser, logoutUser } from "../Redux/Slice/auth"
 import { useEffect } from "react"
 
 const Kanban = () => {
+  // const dispatch = useDispatch()
+  // useEffect(() => {
+  //   dispatch(loginUser(false))
+  // }, [])
+  
   return (
     <div
     style={{

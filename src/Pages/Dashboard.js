@@ -65,8 +65,8 @@ const Dashboard = () => {
           )}
         </div>
         <div className="p-2">
-          {nav.map(({ title, path, icon }) => (
-            <div className=" mb-2 w-100 d-flex ">
+          {nav.map(({ title, path, icon , index}) => (
+            <div key={index} className=" mb-2 w-100 d-flex ">
               <NavLink
                 style={{
                   height: 40,
@@ -121,6 +121,8 @@ const Dashboard = () => {
           width: `calc(100% - ${isDrawerOpen || openDrawerClick ? 160 : 66}px)`,
           transition: "width 0.3s ease-in-out",
           position: "relative",
+          boxShadow:
+            "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
         }}
       >
         <span

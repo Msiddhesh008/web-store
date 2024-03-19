@@ -2,6 +2,7 @@ import React from 'react'
 
 const HaedMain01 = () => {
   return (
+    <div className="p-3 d-flex align-items-center justify-content-between  w-100">
     <div className="d-flex align-items-center justify-content-start gap-3">
     <span className="d-flex align-items-start flex-column">
       <img
@@ -20,6 +21,7 @@ const HaedMain01 = () => {
       </span>
       <span className="web-text-small fw-bold">msiddhesh008@gmail.com</span>
     </span>
+    </div>
     </div>
   )
 }
