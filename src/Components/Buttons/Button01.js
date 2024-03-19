@@ -1,4 +1,6 @@
-const Button01 = ({ title, onClick, type, backgroundColor, hover }) => {
+import Loader01 from "../Loaders/Loader01";
+
+const Button01 = ({ title, onClick, type, backgroundColor, hover, isLoading }) => {
   return (
     <button
       style={{
@@ -14,7 +16,8 @@ const Button01 = ({ title, onClick, type, backgroundColor, hover }) => {
       onMouseEnter={(e) => (e.target.style.backgroundColor = hover)}
       onMouseLeave={(e) => (e.target.style.backgroundColor = backgroundColor)}
     >
-      {title}
+      {isLoading ? <Loader01/> : title}
+       
     </button>
   );
 };

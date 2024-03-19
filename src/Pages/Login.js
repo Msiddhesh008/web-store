@@ -3,15 +3,18 @@ import Input01 from "../Components/Inputs/Input01";
 import logo from "../Images/logoLight.png";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../Redux/Slice/auth";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Button01 from "../Components/Buttons/Button01";
 import { validationSchema } from "../Validations/LoginValidation";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { TiWarning } from "react-icons/ti";
+import Loader01 from "../Components/Loaders/Loader01";
 
 const Login = () => {
   const { isAuthenticate } = useSelector((state) => state?.auth);
+  const [ isLoading, setIsLoading ] = useState(false)
+  
   const navigate = useNavigate();
   const dispatch = useDispatch();
   
@@ -21,14 +24,18 @@ const Login = () => {
     }
   }, [navigate, isAuthenticate]);
 
-  const onSubmit = async (value) => {
-    console.log(value);
-
+  const onSubmit =  (value) => {
+    setIsLoading(true)
     if (value.name === "Admin" && value.password === "Admin") {
-      dispatch(loginUser(true));
-      return navigate("/");
+      return setTimeout(() => {
+        dispatch(loginUser(true));
+        setIsLoading(false)
+        navigate("/");
+      }, 2000); // 3-second delay
+      
     } else {
       dispatch(loginUser(false));
+      setIsLoading(false)
       alert("Invalid credentials");
       reset();
       return navigate("/login");
@@ -50,7 +57,8 @@ const Login = () => {
         position:"relative",
         overflow:"hidden"
       }}
-    >
+    > 
+    
       <img
         style={{
           position: "absolute",
@@ -61,7 +69,6 @@ const Login = () => {
         }}
         src={logo}
         alt="img"
-        className="rounded-3"
       />
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -95,6 +102,7 @@ const Login = () => {
           {errors.password && <span className="text-danger web-text-small fw-bold ps-2 d-flex align-items-center gap-1 mt-1"><TiWarning className="fw-bold fs-5 "/> {errors.password.message}</span>}
         </div>
         <Button01
+          isLoading={isLoading}
           title={"Log In"}
           type={"submit"}
           backgroundColor={"#7965EE"}
