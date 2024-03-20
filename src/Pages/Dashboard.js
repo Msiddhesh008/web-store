@@ -36,7 +36,7 @@ const Dashboard = () => {
       className="d-flex p-2 ps-0"
     >
       <aside
-        className="h-100 pointer position-relative"
+        className="h-100 pointer position-relative sideBar"
         onMouseOver={() => setIsDrawerOpen(true)}
         onMouseLeave={() => setIsDrawerOpen(false)}
         style={{
@@ -115,16 +115,14 @@ const Dashboard = () => {
       </aside>
 
       <main
-        className=" h-100 rounded-5"
+        className=" h-100"
         style={{
-          backgroundColor: "#FAFBFC",
-          backgroundColor: "#FFF",
+          // backgroundColor: "#FAFBFC",
           width: `calc(100% - ${isDrawerOpen || openDrawerClick ? 160 : 66}px)`,
           transition: "width 0.3s ease-in-out",
           position: "relative",
-          boxShadow:
-            "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
-            boxShadow: "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
+          // boxShadow:
+          //   "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
         }}
       >
         <span

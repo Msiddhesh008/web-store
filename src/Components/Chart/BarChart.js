@@ -15,13 +15,13 @@ const pieData = {
   labels: [
     "HTML",
     "CSS",
+    "Bootstrap",
     "Javascript",
-    "React",
+    "React JS",
     "React Native",
-    "Node",
-    "React",
-    "React Native",
-    "Node",
+    "Redux",
+    "Git",
+    "Node JS",
   ],
   datasets: [
     {
@@ -39,7 +39,7 @@ const pieData = {
 const BarChart = () => {
   return (
     <div
-      className=" col-12 col-lg-6 col-md-6 p-2 pe-0"
+      className=" col-12 col-lg-6 col-md-6 p-md-2 pe-md-3 p-1 pt-3 "
     >
         <div 
       style={{
